@@ -111,6 +111,10 @@ function Set-TargetResource
         $MaximumSizeBytes,
 
         [Parameter()]
+        [Uint32]
+        $BlockSizeBit,
+
+        [Parameter()]
         [ValidateSet('Dynamic', 'Fixed', 'Differencing')]
         [String]
         $Type = 'Dynamic',
@@ -206,6 +210,7 @@ function Set-TargetResource
                 $params = @{
                     Path = $vhdFilePath
                     SizeBytes = $MaximumSizeBytes
+                    BlockSizeBit = $BlockSizeBit
                     $Type = $True
                 }
                 $null = New-VHD @params
@@ -262,6 +267,10 @@ function Test-TargetResource
         [Parameter()]
         [Uint64]
         $MaximumSizeBytes,
+
+        [Parameter()]
+        [uint32]
+        $BlockSizeBit,
 
         [Parameter()]
         [ValidateSet('Vhd', 'Vhdx')]

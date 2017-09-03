@@ -6,6 +6,7 @@ class MSFT_xVHD : OMI_BaseResource
     [Write, Description("Parent VHD file path, for differencing disk")] String ParentPath;
     [Write, Description("Maximum size of Vhd to be created")] Uint64 MaximumSizeBytes;
     [Write, Description("Virtual disk format - Vhd or Vhdx"), ValueMap{"Vhd","Vhdx"}, Values{"Vhd","Vhdx"}] String Generation;
+    [write, Description("VHD Block Size from 1Mb to 64Mb")] Uint32 BlockSizeBit
     [Write, Description("Should the VHD be created or deleted"), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
     [Read, Description("Virtual Disk Identifier")] String ID;
     [Write, Description("Type of Vhd - Dynamic, Fixed, Differencing"), ValueMap{"Dynamic","Fixed","Differencing"}, Values{"Dynamic","Fixed","Differencing"}] String Type;
